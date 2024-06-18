@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onchange Event</title>
+</head>
+<body>
+    
+    <select id="slct" onchange="change()">
+        <option value="orange">Orange</option>
+        <option value="apple">Apple</option>
+        <option value="cherry">Cherry</option>
+        <option value="banana">Banana</option>
+    </select>
+
+    <h1 id="demo"> </h1>
+</body>
+<script>
+    function change() {
+        var data = document.getElementById('slct');
+        var selectedValue = data.value;
+
+        document.getElementById('demo').innerHTML = "You have selected " + selectedValue;
+    }
+</script>
+</html>

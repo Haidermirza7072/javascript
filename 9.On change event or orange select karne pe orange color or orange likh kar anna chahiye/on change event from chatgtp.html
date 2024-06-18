@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>onchange Event Example</title>
+</head>
+<body>
+  <label>Type something:</label>
+  <input type="text" id="myInput" onchange="handleChange()">
+  <p id="output">Output will be displayed here.</p>
+
+  <script>
+    
+    function handleChange() {
+      
+      var inputElement = document.getElementById("myInput");
+
+      
+      var outputElement = document.getElementById("output");
+
+      
+      outputElement.textContent = "You typed: " + inputElement.value;
+      //innerhtml or textcontent ak hi hota he //
+    }
+  </script>
+</body>
+</html>
