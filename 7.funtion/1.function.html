@@ -12,11 +12,20 @@
 </html>
 <script>
     //function is a block of code used to perform particular task 
-    function test(){
-        let a = 12;
-        console.log("this is basic function ",a); 
-        document.write("this is basic function ",a);
+    // function test(){
+    //     let a = 12;
+    //     console.log("this is basic function ",a); 
+    //     document.write("this is basic function ",a);
 
+    // }
+    // test();
+
+    // if we store function in variable then that variable become function type
+    //example
+
+    let result = function (){ // here result become function type because function is store in result 
+        let a = 10;
+        return a;
     }
-    test();
+    console.log(result()); // that why we have to write result()
 </script>
