@@ -11,5 +11,6 @@ console.log(`his name is ${real_name} and his friend is ${friend}`); //use this 
 
 // console.log("hai"der"); // not possible 
 console.log(`hai"der`); // so we write like this 
+console.log("hai\"der"); // we can use \ this also which is use in c langauge 
 
 
