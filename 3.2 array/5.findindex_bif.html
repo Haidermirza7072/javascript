@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+</body>
+</html>
+<script>
+    //findindex ye hame jo input dalte he like 55 so usse bada number or phela number usska index represents karta he 
+    //in simple word 30 se bada 33 he or 77 and 44 he but 33 phele aata he is liye vo reprents hoga 
+
+    
+    // let arr = [11,12,,33,10,77,44]
+
+    // let a = arr.findIndex(num => num > 30);
+
+    // document.write(a);
+
+
+
+   // another example hard one 
+
+
+    const ages = [3, 10, 18, 20];
+
+    document.getElementById("demo").innerHTML = ages.findIndex(checkAge);
+
+    function checkAge(age) {
+    return age > 18;
+    }
+
+
+
+
+</script>
