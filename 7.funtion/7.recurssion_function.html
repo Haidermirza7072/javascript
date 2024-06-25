@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // recurssion function is noting but it is factorail method
+    function factorial(num){
+        if(num ==0){
+        return 1;
+    }else{
+        return num * factorial(num -1);
+    }}
+    let result = factorial(5); // factorail is 120
+    console.log(result);
+
+    // another very hard recursion function example 
+
+    // function fibonacci(n,a=0,b=1){
+    //     if (n ==0){
+    //         return a;
+    //     }else{
+    //         return fibonacci(n-1,b,a+b);
+    //     }
+    // }
+    // console.log(fibonacci(3));
+
+    //explanation:-
+    // phele n = 3 which is not equal to 0 so it goes into else
+    //     (n-1,b,a+b)
+    // so  (3-1,10+1)
+    //     (2,1,1)
+    //     now store in fibonacci which is (n,a=0,b=1)
+    // so  n=2,a=1,b=1
+    
+    // now loop or call again 
+    // so n = 2 which is not equal to 0 so it goes into else
+    //     (n-1,b,a+b)
+    // so  (2-1,1,1+1)
+    //     (1,1,2)
+    //     now store in fibonacci  which is (n,a=0,b=1)
+    // so  n =1,a=1,b=2
+
+    // now loop or call again
+
+    // so n = 1 which is not equal to 0 so it goes into else
+    //     (n-1,b,a+b)
+    // so  (1-1,2,1+2)
+    //     (0,2,3)
+    //     now store in fibonacci  which is (n,a=0,b=1)
+    // so  n =0,a=2,b=3
+
+    // now loop or call again
+
+    // so n = 0 which is equal to 0 so if loop works and return a which is 2;
+
+
+
+</script>

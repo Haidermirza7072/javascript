@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //switch function is like if and else only 
+    //1.example 
+    // function add(key){
+    //     let day;
+
+    //     switch (key) {
+    //         case 0:
+    //           day ="monday"
+    //             break;
+    //         case 1:
+    //           day ="tuesday"
+    //             break;
+    //         case 2:
+    //           day ="wednesday"
+    //             break;
+    //         case 3:
+    //           day ="thrusday"
+    //             break;
+    //         case 4:
+    //           day ="friday"
+    //             break;
+    //         case 5:
+    //           day ="saturday"
+    //             break;
+    //         case 4:
+    //           day ="sunday"
+    //             break;
+    //         default:
+    //             day = "invalid day"
+    //             break;
+    //     }
+    //     return day;
+    // }
+    // console.log(add(5));
+
+    //2.example
+
+    function cal(a,b,operator){
+        let result;
+
+        switch (operator) {
+            case "add":
+            result = a + b;    
+                break;
+            case "sub":
+            result = a - b;    
+                break;
+            case "mul":
+            result = a * b;    
+                break;
+            case "div":
+            result = a / b;    
+                break;
+            default:
+            result = "inalid operator"
+                break;
+        }
+        return result;
+    }
+
+    console.log(cal(3,2,"add"));
+</script>
