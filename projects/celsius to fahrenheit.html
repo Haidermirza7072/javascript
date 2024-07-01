@@ -6,15 +6,43 @@
     <title>Document</title>
 </head>
 <body>
-    
+  
 </body>
 </html><script>
 
-let c = prompt("enter c")
+//////////celsius to fahrenheit
+
+let c = prompt("enter celisius temperature")
 function cel(){
     return (c * 9/5) + 32 // formula to convert celsius to fahrenheit is (°C × 9/5) + 32
 }
 let a = cel()
 console.log(a);
 document.write(` Celsius of  ${c}  to farenheit is  ${a}.`);
+
+////////////////////fehrenheit to celsius
+        
+        let f = prompt("Enter Fahrenheit temperature:");
+        
+
+        function fahrenheitToCelsius() {
+            return (f - 32) * 5/9;
+        }
+
+        let b = fahrenheitToCelsius();
+        console.log(`Fahrenheit of ${f} to Celsius is ${b}`);
+        document.write(`Fahrenheit of ${f}  to Celsius is ${b}.`);
+
+        // Example of usage:
+       
+
+
+      
+
+ 
+
+
+
+
+
 </script>

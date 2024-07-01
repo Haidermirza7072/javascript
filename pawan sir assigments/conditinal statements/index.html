@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+document.write("1. Table of 5 repitition logic" +"<br><br>");
+
+for(let i = 1;i <=10 ; i++){
+    document.write("5x" + i + "=" + i*5 +"<br>");
+}
+
+document.write("<br>" +"2. Repetation of name with repitition logic" +"<br><br>");
+
+for (let i = 0; i < 5; i++) {
+    console.log(i + " Haider Mirza " );
+    document.write("<br>"+ i + " Haider Mirza " + "<br>" )
+}
+
+document.write("<br>" +"3. Repetation of star with repitition logic" +"<br><br>");
+
+function StarArray(rows) {
+            const starArray = [];
+
+            for (let i = rows; i >= 1; i--) {
+                const stars = '*'.repeat(i);
+                starArray.push(stars);
+            }
+
+            return starArray;
+        }
+
+        const numberOfRows = 5; // You can change this to the desired number of rows
+        const result = StarArray(numberOfRows);
+
+        console.log(result);
+        document.write(result.join("<br>"));
+
+
+</script>

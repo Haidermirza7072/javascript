@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> basic array calculation </h1>
+    <input type="text" title="haider" id="inputtext">
+    <br>
+
+    <button onclick="test()"> calculate </button>
+
+    <p id="mirza"> </p>
+
+    <!-- <p id="displayText"></p> -->
+    <p id="sumResult"></p>
+    <script>
+        function test(){
+            var inputText = document.getElementById('inputtext').value;
+           
+            document.getElementById('mirza').textContent =`[ ${inputText} ]`;
+
+            let sum = Document.getElementById('inputtext').value;
+
+            sum = numbers.reduce((total, num) => total + num, 0);
+
+         
+            // document.getElementById('displayText').textContent = inputText;
+
+         
+            document.getElementById('sumResult').textContent = 'Sum: ' + sum;
+
+
+        }
+    </script>
+</body>
+</html>
+
+
+  
+    
+
