@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input title="text" type="text" id="text">
+    <button id="submit" title="h" onclick="handle()">click</button>
+    <p id="haider" ></p>
+
+    <script>
+        
+
+        // let b = document.getElementById("submit");
+
+        // b.addEventListener('click', () => {
+        //     let a = document.getElementById("text").value;
+
+        //     document.getElementById('haider').innerHTML = a;
+        // })
+
+        //same we can do 
+
+        
+        function handle(){
+            let data = document.getElementById('text').value;
+
+            document.getElementById('haider').innerHTML = data;
+        }
+        
+
+    </script>
+</body>
+</html>
