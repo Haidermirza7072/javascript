@@ -15,8 +15,9 @@
 
     let arr1 = [1,2,3,4,5]
 
-    arr1.push(6,7,8,9,10);
+    arr1.push(6,7,8,9,10); 
 
+    document.write("push:-");
     document.write(arr1);
 
     // now pop :- it remove the elements from backward or backside of array
@@ -26,8 +27,9 @@
 
     let arr2 = [1,2,3,4,5]
 
-    arr2.pop(5);
+    arr2.pop(5); 
 
+    document.write("pop :-");
     document.write(arr2);
 
     //shift:- it will remove the elements from the starting or front side of array 
@@ -39,12 +41,13 @@
 
     arr3.shift(1);
 
+    document.write("shift:-");
     document.write(arr3);
 
     //shift another example 
 
     const fruits = ["Banana", "Orange", "Apple", "Mango"];
-    document.getElementById("demo").innerHTML = fruits.shift();
+    document.getElementById("demo").innerHTML = "shift:-" + fruits.shift(); //here the element which is shift is print.
 
     //unshift:- it will add the elements from the starting or front side of array
     document.write("<br>");
@@ -52,8 +55,9 @@
 
     let arr4 = [1,2,3,4,5]
 
-    arr4.unshift(0,0.1,0.2);
+    arr4.unshift(0);
 
+    document.write("unshift:-");
     document.write(arr4);
 
 </script>

@@ -1,0 +1,9 @@
+
+oops:- object oriented programming
+
+function and array ki tarah hi hota he jo problem solve karne me use hota he 
+
+
+ the oops keyword is used to resprest current data.
+
+ oops ko object bhi bolte he 
