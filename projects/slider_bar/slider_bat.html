@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            margin: auto;
+            margin-top: 100px;
+            width: 60%;
+            height: 500px;
+            box-shadow: 0px 0px 5px rgba(15, 12, 15, 0.133);
+            position: relative;
+            overflow: hidden;
+            display: flex; /* Added flex display */
+        }
+
+        .slider {
+            min-width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .btn-slider {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-prev,
+        .btn-next {
+            font-size: 20px;
+            letter-spacing: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="car5.jpg" class="slider" alt="">
+        <img src="wallpaperflare.com_wallpaper (1).jpg" class="slider" alt="">
+        <img src="wallpaperflare.com_wallpaper (8).jpg" class="slider" alt="">
+        <img src="wp5289118-peaky-blinders-4k-wallpapers.jpg" class="slider" alt="">
+    </header>
+
+    <div class="btn-slider">
+        <button class="btn-prev" onclick="prev()">Prev</button>
+        <button class="btn-next" onclick="next()">Next</button>
+    </div>
+
+    <script>
+        let slides = document.querySelectorAll('.slider');
+        let count = 0;
+
+        function prev() {
+            count--;
+            if (count < 0) count = slides.length - 1;
+            slideImage();
+        }
+
+        function next() {
+            count++;
+            if (count >= slides.length) count = 0;
+            slideImage();
+        }
+
+        function slideImage() {
+            const offset = -count * 100;
+            slides.forEach(slider => {
+                slider.style.transform = `translateX(${offset}%)`;
+            });
+        }
+
+        setInterval(next, 3000); // Changed to 3000ms for a more noticeable slide interval
+    </script>
+</body>
+
+</html>
