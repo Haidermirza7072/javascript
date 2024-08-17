@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- theory :- hamara jo browser hota he vo string samjta he array or object nhi samajta 
+
+    or hamara javascript or consolehe vo string nhi samajta vo array or object samajta he 
+
+    asan words me bolo to dono ki langauge alag alag he 
+
+    so iss problem ko solve karne ke liye json aaya 
+
+    jo langauge translate kar ke deta he bool sakte he 
+
+    string me convert karne ke liye json.stringify use hota he 
+
+    or string se jo original code langauge thi ussme convert karne ke liye json.parse use hota he  -->
+
+    <button onclick="add()"> click to add </button>
+    <button onclick="remove()"> click to remove  </button>
+
+    <script>
+        function add(){
+
+            let obj = {
+                name : 'haider',
+                age : 20,
+                work : 'bussiness man'
+            } // hame ye object store karvana he local storage me 
+            // pn vo ye object nhi samajta so ham isse String me convert karen gee 
+
+            localStorage.setItem('username',JSON.stringify(obj))
+        }
+
+        function remove(){
+            localStorage.removeItem('username')
+        }
+
+        function view(){
+            let username = JSON.parse(localStorage.getItem('username')); //hamen ye kiya takki string me obj ko convert kiya tha usse firse obj me kar sakke  
+            console.log(localStorage.getItem('username')); //ye string wala obj he 
+            console.log(username); //ye string ko obj convert karane ke baad wala 
+        }
+        view()
+
+        
+    </script>
+</body>
+</html>

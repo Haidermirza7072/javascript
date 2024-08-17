@@ -33,10 +33,28 @@
     document.write("<br>");
 
     let arr6 = [1,2,3,4,5]
-    let a = arr6.splice(2,2,66,77);
-    document.write(a);
+    let a = arr6.splice(1,1,10);
+    document.write(a); // ye remove huwe vo number dega 
+    document.write("<br>");
+    document.write("<br>");
+    document.write(arr6); // ye remove or add hone ke baad wala arr dega  
 
 
+    // lets us understand splice with theory
+    // splice(1#,2#,3#);
+    // here at 1# definines the index number 
+    // 2# defines how many elements is removed from given index
+    // 3# add the number ath the place from where the element is removed 
+
+    document.write("<br>");
+    document.write("<br>");
+
+
+    // another example of splice 
+
+    let arr7 = [1,2,3,10,5,6]
+    let h = arr7.splice(3,1,4);
+    document.write(arr7);
 
 
 </script>

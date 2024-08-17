@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- theory:- localStorage is the Storage where user store the data permanlly in local
+    ager asan words me bolu to localStorage aese jhagha jaha data store hota he permanlly jb tak clear naa kare 
+    localStorage 5mb tak data store kar sakta or usse zada data milta he usse to vo phele kaa data delete kar deta her    -->
+
+    <button onclick="add()"> click to add </button>
+    <button onclick="remove()"> click to remove  </button>
+    <script>
+        function add(){
+            localStorage.setItem('username','hello') // setitem se data store hota he 
+            localStorage.setItem('number',1234) //ak saat 2 store kar sakte he bs key alag dena hota he 
+        }
+        function remove(){
+            localStorage.removeItem('username') //removeitem se data remove hota he 
+        }
+
+        let username = localStorage.getItem('username') // ham ye chiz dekhne ke liye karte he console or document me ager ham ye nhi kare to data store to hoga pn kahi dikhai gaa nhi  
+
+        console.log(username);
+    </script>
+</body>
+</html>
