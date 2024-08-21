@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- so hame API banane ki zaruraat kyu padhti he 
+
+    javascript ak synchonois language he 
+
+    Means ak ke baad ak process karta he 
+
+    but jb hame ak hi samai pe 2 se zada user ka data miil raha hoo to hame javascriptko asynchonois banana padhta he function ke madad se  -->
+    <script>
+
+        // Normal function 
+
+        function showapi(){
+            let res = fetch('url');
+            let result = res.json(); //ider jo jsaon use huwa he vo pura alag he ye fetch kiya huwa data server me convert kar ke deta jo langaunge me server samjta he 
+        }
+
+        showapi();
+
+        //to make the upper function asynchonois we use asyn words before function 
+
+        //with asyn function 
+
+        asyn function show(){
+            let res = await fetch('url');
+            let result = await res.json();
+        }
+
+        show()
+    </script>
+</body>
+</html>

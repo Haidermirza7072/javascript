@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Theory
+        // Yes = fullfill
+        // No = reject 
+        // Partial = Pending 
+
+        asyn function final(){
+            const res = await fetch('https://jsonplaceholder.typicode.com/users'); // url from api placeholder website ../ user data 
+
+            console.log(res);
+            const result = await res.json();
+            console.log(result);
+
+            console.table(result);
+        }
+        final()
+    </script>
+</body>
+</html>
