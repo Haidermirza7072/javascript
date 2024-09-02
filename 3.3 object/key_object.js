@@ -1,3 +1,4 @@
+// object is the collection key and value
 let person = {
     name:"haider",
     age:18,
