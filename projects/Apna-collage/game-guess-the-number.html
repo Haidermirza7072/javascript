@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .message{
+        font-size: 50px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+    }
+</style>
+<body>
+    <p id="message" class="message"></p>
+    <script>
+        let num = 25;
+        let guess = prompt("guess the number");
+
+        while( guess != num){
+            guess    = prompt('guess correct number between 1-50');
+          
+        }
+        document.getElementById("message").innerHTML = "You guessed it";
+
+
+
+       
+        
+
+
+
+
+        // let num = 72;
+        // let guess  = prompt('enter number');
+
+        // function hey(){
+        // if(guess < 72){
+        //     guess = prompt('green');
+        // }
+        // else if(guess >72){
+        //     guess = prompt('red')
+        // }
+        // else{
+        //     alert('72')
+        // }
+        // }
+        // hey();
+
+
+        
+        // const correctNumber = 72;
+        // let guess = null;
+        // const messageElement = document.getElementById('message');
+
+        // function getGuess() {
+        //     guess = parseInt(prompt('Guess the number (between 1 and 100):'), 10);
+        //     // if (isNaN(guess)) {
+        //     //     messageElement.textContent = 'Please enter a valid number.';
+        //     //     return;
+        //     // } //for zero enter
+        //     if (guess < correctNumber) {
+        //         guess = prompt('Try a higher number!'); 
+        //         getGuess();
+        //     } else if (guess > correctNumber) {
+        //         guess = prompt('Try a lower number!');
+        //         getGuess(); 
+        //     } else {
+               
+        //         messageElement.textContent = 'Congratulations! You guessed the correct number: 72';
+        //     }
+        // }
+
+        // getGuess(); 
+
+        
+        
+    
+   
+        
+    </script>
+</body>
+</html>

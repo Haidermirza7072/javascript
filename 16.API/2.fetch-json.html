@@ -18,8 +18,8 @@
         // Normal function 
 
         function showapi(){
-            let res = fetch('url');
-            let result = res.json(); //ider jo jsaon use huwa he vo pura alag he ye fetch kiya huwa data server me convert kar ke deta jo langaunge me server samjta he 
+            let res = fetch('https://jsonplaceholder.typicode.com/users');
+            let result = res.json(); //ider jo json use huwa he vo pura alag he ye fetch kiya huwa data server me convert kar ke deta jo langaunge me server samjta he 
         }
 
         showapi();
@@ -28,8 +28,8 @@
 
         //with asyn function 
 
-        asyn function show(){
-            let res = await fetch('url');
+        async function show(){
+            let res = await fetch('https://jsonplaceholder.typicode.com/users');
             let result = await res.json();
         }
 

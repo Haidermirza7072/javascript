@@ -2,7 +2,7 @@ let real_name = "haider";
 let friend = "sawan";
 console.log("his name is " + real_name + " and his friend is " + friend );
 
-// same we can write by using $ sign 
+// same we can write by using backtick `` sign 
 
 console.log(`his name is ${real_name} and his friend is ${friend}`); //use this symbol `` tab ke uper esc ke niche wala button 
 

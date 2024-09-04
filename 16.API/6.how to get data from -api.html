@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="movie"></p>
+    <!-- 
+    1.first we have to get api from backend developer or fron net 
+    2.like in thuis code i get free api from website called rapid api 
+    3.search movie 
+    4.In that imdb top 100 movie  
+    5.in code sinppets make target as javascript and client as fetch 
+    6.Copy code 
+    7.after that make a async function name:- showapi and also call it below
+    8.and paste the code in it
+    9.make change text to json -->
+
+    <script>
+
+        async function showapi() {
+            const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'x-rapidapi-key': 'bde90b614amsh21cb9edf3880e52p185bfbjsnf80292689c4a',
+                    'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'   //this are the tokens which helps us to get data from api  
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json(); //chnage text to json here 
+                console.log(result);
+                
+                const images = result.images;
+
+                var imgresult = "";
+
+                images.foreach((img) => {
+                    console.log(img.node.url);
+                    const finalresult =img.node.url;
+                    imgresult += `<img src=${finalresult}>
+                    <span> $ {img.node.caption.plaintext} </span>`
+                })
+                
+                document.querySelector('#movie').innerHTML= imgresult;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        showapi();
+       
+    </script>
+</body>
+
+</html>

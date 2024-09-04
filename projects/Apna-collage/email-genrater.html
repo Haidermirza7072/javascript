@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #haider{
+            font-size: 100px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            position: absolute;
+            left: 0%;
+            right: 0%;
+            top: 0%;
+            bottom: 0%;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="haider"> </p>
+    <script>
+        let username = prompt("Enter your fullname without space ");
+
+        let u = ` @${username}${username.length} `
+
+        
+        document.write(u);
+        document.getElementById('haider').innerHTML= u;
+    </script>
+</body>
+</html>
