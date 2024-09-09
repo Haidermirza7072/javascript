@@ -1,0 +1,7 @@
+1.What is synchronous in  Javascript?
+Ans:-In JavaScript, "synchronous" means that code is executed line by line, one after the other, in the exact order it appears. Each line of code waits for the previous one to finish before it starts running.
+
+2.what is asynchronousin Javascript?
+Ans:-Asynchronous in JavaScript means that certain tasks, like fetching data from a server or reading a file, can start and then run in the background while the rest of your code continues to execute. Instead of waiting for these tasks to finish, JavaScript moves on to the next task. Once the asynchronous task is complete, it "calls back" with the result.
+
+This allows your program to stay responsive and not get "stuck" waiting for things like network requests or file operations to finish.

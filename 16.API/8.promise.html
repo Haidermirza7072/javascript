@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const promise = new Promise((res, rej) => {
+            var a = 10;
+            if (a == 10) {
+                res("a is equal to 10");
+            } else {
+                rej("condition false");
+            }
+        });
+    
+        // Handling the promise
+        promise
+            .then((data) => {
+                console.log(data); // Will log: "a is equal to 10"
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    </script>
+    
+</body>
+</html>

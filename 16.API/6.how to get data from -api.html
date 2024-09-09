@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #haider{
+            display: flex;
+            justify-content: center;
+            font-size: 100px;
+            background-color: red;
+        }
+        .mirza{
+            /* align-items: center; */
+            text-align: center;
+            background-color: aqua;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,7 +34,7 @@
     8.and paste the code in it
     9.make change text to json -->
 
-    <script>
+    <!-- <script>
 
         async function showapi() {
             const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
@@ -35,7 +48,7 @@
 
             try {
                 const response = await fetch(url, options);
-                const result = await response.json(); //chnage text to json here 
+                const result = await response.json(); //change text to json here 
                 console.log(result);
                 
                 const images = result.images;
@@ -45,8 +58,8 @@
                 images.foreach((img) => {
                     console.log(img.node.url);
                     const finalresult =img.node.url;
-                    imgresult += `<img src=${finalresult}>
-                    <span> $ {img.node.caption.plaintext} </span>`
+                    imgresult += `<img src= ${finalresult}>
+                    <span> ${img.node.caption.plaintext} </span>`
                 })
                 
                 document.querySelector('#movie').innerHTML= imgresult;
@@ -56,6 +69,39 @@
         }
         showapi();
        
+    </script> -->
+
+    <script>
+         async function showapi() {
+            const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'x-rapidapi-key': 'bde90b614amsh21cb9edf3880e52p185bfbjsnf80292689c4a',
+                    'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'   // these are the tokens that help us get data from the API  
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json(); // change text to JSON
+                console.log(result);
+
+                let imgresult = ""; // Assuming that `images` is an array of image objects in your API response.
+                result.forEach((movie) => {
+                    const imageUrl = movie.image;  // This needs to match the actual structure of your API response
+                    const caption = movie.title; // Assuming there is a title or caption property
+                    imgresult += `<div class="mirza">
+                        <img  src="${imageUrl}" alt="${caption}">
+                        <p id="haider">${caption}</p></div>`;
+                });
+
+                document.querySelector('#movie').innerHTML = imgresult;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        showapi();
     </script>
 </body>
 
