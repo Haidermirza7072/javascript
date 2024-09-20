@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Image Slider</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Slider Container */
+        .slider {
+            width: 600px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+
+        /* Slides Wrapper */
+        .slides {
+            display: flex;
+            width: 300%; /* 3 slides */
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        /* Individual Slide */
+        .slide {
+            width: 100%;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Navigation Buttons (Previous & Next) */
+        .navigation-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .navigation-buttons button {
+            background-color: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .navigation-buttons button:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Manual Navigation Dots */
+        .navigation-manual {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .manual-btn {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .manual-btn.active {
+            background-color: #ccc;
+            border-color: #888;
+        }
+
+        /* Hide Radio Inputs */
+        .slides input {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 650px) {
+            .slider {
+                width: 90%;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider">
+        <!-- Slides Wrapper -->
+        <div class="slides" id="slides">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <img src="humbnail.jpg" alt="Slide 1">
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="People-hate-what-they-dont-understand.jpg" alt="Slide 2">
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="thumbnail.jpg"Slide 3">
+            </div>
+        </div>
+
+        <!-- Previous and Next Buttons -->
+        <div class="navigation-buttons">
+            <button id="prevBtn">&#10094;</button>
+            <button id="nextBtn">&#10095;</button>
+        </div>
+
+        <!-- Manual Navigation Dots -->
+        <div class="navigation-manual">
+            <span class="manual-btn active" data-slide="0"></span>
+            <span class="manual-btn" data-slide="1"></span>
+            <span class="manual-btn" data-slide="2"></span>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const slides = document.getElementById('slides');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const manualBtns = document.querySelectorAll('.manual-btn');
+            const totalSlides = slides.children.length;
+            let currentIndex = 0;
+            let slideInterval;
+
+            // Function to update slide position
+            function updateSlide() {
+                slides.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+                updateActiveDot();
+            }
+
+            // Function to update active dot
+            function updateActiveDot() {
+                manualBtns.forEach(btn => btn.classList.remove('active'));
+                if(manualBtns[currentIndex]){
+                    manualBtns[currentIndex].classList.add('active');
+                }
+            }
+
+            // Function to go to the next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlide();
+                resetInterval();
+            }
+
+            // Function to go to the previous slide
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlide();
+                resetInterval();
+            }
+
+            // Function to go to a specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlide();
+                resetInterval();
+            }
+
+            // Function to start the automatic slide interval
+            function startInterval() {
+                slideInterval = setInterval(nextSlide, 3000);
+            }
+
+            // Function to reset the slide interval
+            function resetInterval() {
+                clearInterval(slideInterval);
+                startInterval();
+            }
+
+            // Event Listeners for Buttons
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Event Listeners for Manual Dots
+            manualBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const index = parseInt(btn.getAttribute('data-slide'));
+                    goToSlide(index);
+                });
+            });
+
+            // Initialize Slider
+            updateSlide();
+            startInterval();
+
+            // Optional: Pause on hover
+            const slider = document.querySelector('.slider');
+            slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            slider.addEventListener('mouseleave', startInterval);
+        })();
+    </script>
+</body>
+</html>

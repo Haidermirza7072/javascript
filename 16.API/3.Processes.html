@@ -15,11 +15,12 @@
         async function final(){
             const res = await fetch('https://jsonplaceholder.typicode.com/users'); // url from api placeholder website ../ user data 
 
-            console.log(res);
+            console.log(res);  //show what is store in res
             const result = await res.json();
-            console.log(result);
 
-            console.table(result);
+            console.log(result); //show the data stored in api 
+
+            console.table(result); //show the data store in api in table form 
         }
         final()
     </script>

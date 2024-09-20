@@ -15,22 +15,25 @@
     but jb hame ak hi samai pe 2 se zada user ka data miil raha hoo to hame javascriptko asynchonois banana padhta he function ke madad se  -->
     <script>
 
-        // Normal function 
+        // Normal function as an exmple but not work
 
         function showapi(){
             let res = fetch('https://jsonplaceholder.typicode.com/users');
             let result = res.json(); //ider jo json use huwa he vo pura alag he ye fetch kiya huwa data server me convert kar ke deta jo langaunge me server samjta he 
+            console.log(result);
+            showapi();
         }
-
-        showapi();
+       
+        
 
         //to make the upper function asynchonois we use asyn words before function 
 
-        //with asyn function 
+        //with asyn function works
 
         async function show(){
             let res = await fetch('https://jsonplaceholder.typicode.com/users');
             let result = await res.json();
+            console.log(result);
         }
 
         show()

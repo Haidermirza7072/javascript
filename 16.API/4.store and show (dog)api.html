@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="img"> </div>
     <script>
-        async function final() {
-            let res = await fetch('https://jsonplaceholder.typicode.com/users') //from dog api website 
+        async function final(){
+            let res = await fetch('https://dog.ceo/api/breeds/image/random') //from dog api website 
 
-            let result = await res.json()
-            console.log(result);
+            let result = await res.json();
+            console.log(result); 
+            
             console.log(result.message);
             let image = result.message
 
@@ -20,9 +23,12 @@
 
             let finalresult = `<img src="${image}" width="200" height="200">`
 
-            console.log(finalresult);
+            // console.log(finalresult);
             document.querySelector('#img').innerHTML = finalresult;
         }
+
+        final()
     </script>
 </body>
+
 </html>
