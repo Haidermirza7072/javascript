@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page with CRUD Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Management</h1>
+
+        <!-- Product Form -->
+        <div class="form-container">
+            <input type="text" id="productName" placeholder="Product Name">
+            <input type="number" id="productPrice" placeholder="Product Price">
+            <button onclick="addProduct()">Add Product</button>
+        </div>
+
+        <!-- Product Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productList">
+                <!-- Products will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+let products = [];
+let currentIndex = null;
+
+// Add Product
+function addProduct() {
+    const name = document.getElementById('productName').value;
+    const price = document.getElementById('productPrice').value;
+
+    if (name && price) {
+        if (currentIndex !== null) {
+            // Update the existing product
+            products[currentIndex] = { name, price };
+            currentIndex = null;
+        } else {
+            // Add new product
+            products.push({ name, price });
+        }
+        document.getElementById('productName').value = '';
+        document.getElementById('productPrice').value = '';
+        renderProducts();
+    } else {
+        alert('Please fill both fields');
+    }
+}
+
+// Render Product List
+function renderProducts() {
+    const productList = document.getElementById('productList');
+    productList.innerHTML = '';
+
+    products.forEach((product, index) => {
+        productList.innerHTML += `
+            <tr>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>
+                    <button onclick="editProduct(${index})">Edit</button>
+                    <button onclick="deleteProduct(${index})">Delete</button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+// Edit Product
+function editProduct(index) {
+    document.getElementById('productName').value = products[index].name;
+    document.getElementById('productPrice').value = products[index].price;
+    currentIndex = index;
+}
+
+// Delete Product
+function deleteProduct(index) {
+    products.splice(index, 1);
+    renderProducts();
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page CRUD</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Management</h1>
+
+    <form id="productForm">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" required><br><br>
+
+        <label for="productPrice">Product Price:</label>
+        <input type="number" id="productPrice" required><br><br>
+
+        <input type="hidden" id="editIndex">
+        <button type="submit" id="submitButton">Add Product</button>
+    </form>
+
+    <h2>Product List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="productList"></tbody>
+    </table>
+
+    <script>
+
+        // Fetch products from localStorage or initialize an empty array
+let products = JSON.parse(localStorage.getItem('products')) || [];
+
+// Select elements from the DOM
+const productForm = document.getElementById('productForm');
+const productNameInput = document.getElementById('productName');
+const productPriceInput = document.getElementById('productPrice');
+const productList = document.getElementById('productList');
+const editIndexInput = document.getElementById('editIndex');
+const submitButton = document.getElementById('submitButton');
+
+// Display products in the table
+function renderProducts() {
+    productList.innerHTML = '';
+    products.forEach((product, index) => {
+        productList.innerHTML += `
+            <tr>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>
+                    <button onclick="editProduct(${index})">Edit</button>
+                    <button onclick="deleteProduct(${index})">Delete</button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+// Add product or update an existing product
+productForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = productNameInput.value.trim();
+    const price = productPriceInput.value.trim();
+
+    if (editIndexInput.value === '') {
+        // Add new product
+        products.push({ name, price });
+    } else {
+        // Update existing product
+        const index = editIndexInput.value;
+        products[index] = { name, price };
+        editIndexInput.value = '';
+        submitButton.textContent = 'Add Product';
+    }
+
+    // Save to localStorage and re-render the list
+    localStorage.setItem('products', JSON.stringify(products));
+    renderProducts();
+    productForm.reset();
+});
+
+// Edit product
+function editProduct(index) {
+    const product = products[index];
+    productNameInput.value = product.name;
+    productPriceInput.value = product.price;
+    editIndexInput.value = index;
+    submitButton.textContent = 'Update Product';
+}
+
+// Delete product
+function deleteProduct(index) {
+    products.splice(index, 1);
+    localStorage.setItem('products', JSON.stringify(products));
+    renderProducts();
+}
+
+// Initial rendering of products
+renderProducts();
+
+    </script>
+</body>
+</html>
